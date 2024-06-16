@@ -47,7 +47,7 @@ def load_vector(query):
       st.session_state.docs = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100).split_documents(st.session_state.documents)
       print('Embedding started') 
       embedding_start = time.time()
-      st.session_state.vector = FAISS.from_documents(st.session_state.docs[:10], hf_emb)
+      st.session_state.vector = FAISS.from_documents(st.session_state.docs, hf_emb)
       print('Embedding done')
       print('Embedding done in', (time.time() - embedding_start) / 60, 'minutes')
       
